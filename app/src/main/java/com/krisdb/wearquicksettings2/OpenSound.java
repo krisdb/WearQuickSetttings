@@ -3,6 +3,7 @@ package com.krisdb.wearquicksettings2;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.wearable.complications.ComplicationData;
 import android.support.wearable.complications.ComplicationManager;
 import android.support.wearable.complications.ComplicationProviderService;
@@ -21,7 +22,7 @@ public class OpenSound extends ComplicationProviderService {
         if (dataType == ComplicationData.TYPE_ICON)
             complicationData = Utils.setData(
                     this,
-                    PendingIntent.getService(this, 0, open, PendingIntent.FLAG_UPDATE_CURRENT),
+                    PendingIntent.getActivity(this, 0, new Intent(Settings.ACTION_SOUND_SETTINGS), 0),
                     R.drawable.ic_action_sound
             );
 

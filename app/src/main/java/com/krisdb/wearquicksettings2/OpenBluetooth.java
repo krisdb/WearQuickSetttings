@@ -7,7 +7,7 @@ import android.support.wearable.complications.ComplicationData;
 import android.support.wearable.complications.ComplicationManager;
 import android.support.wearable.complications.ComplicationProviderService;
 
-public class SettingsDisplay extends ComplicationProviderService {
+public class OpenBluetooth extends ComplicationProviderService {
     @Override
     public void onComplicationUpdate(int complicationId, int dataType, ComplicationManager complicationManager) {
 
@@ -16,8 +16,8 @@ public class SettingsDisplay extends ComplicationProviderService {
         if (dataType == ComplicationData.TYPE_ICON)
             complicationData = Utils.setData(
                     this,
-                    PendingIntent.getActivity(this, 0, new Intent(Settings.ACTION_DISPLAY_SETTINGS), 0),
-                    R.drawable.ic_action_display
+                    PendingIntent.getActivity(this, 0, new Intent(Settings.ACTION_BLUETOOTH_SETTINGS), 0),
+                    R.drawable.ic_action_bluetooth
             );
 
         if (complicationData != null)

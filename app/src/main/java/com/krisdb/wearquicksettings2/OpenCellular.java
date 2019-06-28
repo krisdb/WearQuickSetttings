@@ -7,8 +7,7 @@ import android.support.wearable.complications.ComplicationData;
 import android.support.wearable.complications.ComplicationManager;
 import android.support.wearable.complications.ComplicationProviderService;
 
-public class SettingsApps extends ComplicationProviderService {
-
+public class OpenCellular extends ComplicationProviderService {
     @Override
     public void onComplicationUpdate(int complicationId, int dataType, ComplicationManager complicationManager) {
 
@@ -17,8 +16,8 @@ public class SettingsApps extends ComplicationProviderService {
         if (dataType == ComplicationData.TYPE_ICON)
             complicationData = Utils.setData(
                     this,
-                    PendingIntent.getActivity(this, 0, new Intent(Settings.ACTION_APPLICATION_SETTINGS), 0),
-                    R.drawable.ic_action_apps
+                    PendingIntent.getActivity(this, 0, new Intent(Settings.ACTION_WIRELESS_SETTINGS), 0),
+                    R.drawable.ic_action_cellular
             );
 
         if (complicationData != null)

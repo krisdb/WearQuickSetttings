@@ -5,10 +5,10 @@ import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
-import android.net.wifi.WifiManager;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
 
 public class ToggleService extends IntentService {
 
@@ -26,23 +26,13 @@ public class ToggleService extends IntentService {
         final String toggle = extras.getString("toggle");
 
         if (toggle != null) {
-            if (toggle.equals("wifi"))
-                toggleWifi();
-            else if (toggle.equals("bluetooth"))
+            if (toggle.equals("bluetooth"))
                 toggleBluetooth();
             else if (toggle.equals("mute"))
                 muteVolume();
+            else if (toggle.equals("mediavolme"))
+                openMediaVolume();
         }
-
-        final String open = extras.getString("open");
-
-        if (open != null) {
-            if (open.equals("sound")) {
-                final AudioManager audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
-                audioManager.adjustVolume(AudioManager.ADJUST_RAISE, AudioManager.FLAG_SHOW_UI);
-            }
-        }
-
         return START_STICKY;
     }
 
@@ -60,6 +50,13 @@ public class ToggleService extends IntentService {
         }
     }
 
+    private void openMediaVolume() {
+        AudioManager amanager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+
+        if (amanager != null)
+            amanager.adjustVolume(AudioManager.ADJUST_RAISE, AudioManager.FLAG_SHOW_UI);
+    }
+
     private void toggleBluetooth()
     {
         BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
@@ -69,34 +66,17 @@ public class ToggleService extends IntentService {
         else if (adapter.isEnabled())
         {
             adapter.disable();
-            Toast.makeText(this, "Turning Bluetooth off...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Bluetooth off", Toast.LENGTH_SHORT).show();
         }
         else
         {
             adapter.enable();
-            Toast.makeText(this, "Turning Bluetooth on...", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    private void toggleWifi()
-    {
-        WifiManager wifiManager = (WifiManager) this.getSystemService(Context.WIFI_SERVICE);
-
-        if (wifiManager.isWifiEnabled())
-        {
-            wifiManager.setWifiEnabled(false);
-            Toast.makeText(this, "Turning WiFi off...", Toast.LENGTH_SHORT).show();
-        }
-        else
-        {
-            wifiManager.setWifiEnabled(true);
-            Toast.makeText(this, "Turning WiFi on...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Bluetooth on", Toast.LENGTH_SHORT).show();
         }
     }
 
     @Override
     protected void onHandleIntent(@Nullable Intent intent) {
-
 
     }
 }

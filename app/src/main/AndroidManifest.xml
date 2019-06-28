@@ -37,7 +37,7 @@
         <service
             android:name=".OpenSound"
             android:icon="@drawable/ic_action_sound"
-            android:label="Open Media Sound"
+            android:label="Open Sound Settings"
             android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
             <intent-filter>
                 <action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" />
@@ -50,7 +50,7 @@
 
 
         <service
-            android:name=".SettingsApps"
+            android:name=".OpenApps"
             android:icon="@drawable/ic_action_apps"
             android:label="Apps"
             android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
@@ -63,36 +63,8 @@
                 android:value="ICON" />
         </service>
 
-         <service
-            android:name=".SettingsSound"
-            android:icon="@drawable/ic_action_sound"
-            android:label="Sound Settings"
-            android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
-            <intent-filter>
-                <action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.support.wearable.complications.SUPPORTED_TYPES"
-                android:value="ICON" />
-        </service>
-
         <service
-            android:name=".SettingsWifi"
-            android:icon="@drawable/ic_action_wifi"
-            android:label="Wifi Settings"
-            android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
-            <intent-filter>
-                <action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.support.wearable.complications.SUPPORTED_TYPES"
-                android:value="ICON" />
-        </service>
-
-        <service
-            android:name=".SettingsBluetooth"
+            android:name=".OpenBluetooth"
             android:icon="@drawable/ic_action_bluetooth"
             android:label="Bluetooth Settings"
             android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
@@ -106,7 +78,7 @@
         </service>
 
         <service
-            android:name=".SettingsDisplay"
+            android:name=".OpenDisplay"
             android:icon="@drawable/ic_action_display"
             android:label="Display Settings"
             android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
@@ -133,9 +105,9 @@
         </service>
 
         <service
-            android:name=".ToggleWifi"
+            android:name=".OpenWifi"
             android:icon="@drawable/ic_action_wifi"
-            android:label="Wifi Toggle"
+            android:label="Open Wifi Settings"
             android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
             <intent-filter>
                 <action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" />
@@ -145,10 +117,53 @@
                 android:name="android.support.wearable.complications.SUPPORTED_TYPES"
                 android:value="ICON" />
         </service>
+
         <service
             android:name=".ToggleBluetooth"
             android:icon="@drawable/ic_action_bluetooth"
             android:label="Toggle Bluetooth"
+            android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
+            <intent-filter>
+                <action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.support.wearable.complications.SUPPORTED_TYPES"
+                android:value="ICON" />
+        </service>
+
+        <service
+            android:name=".OpenCellular"
+            android:icon="@drawable/ic_action_cellular"
+            android:label="Open Connectivity Settings"
+            android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
+            <intent-filter>
+                <action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.support.wearable.complications.SUPPORTED_TYPES"
+                android:value="ICON" />
+        </service>
+
+        <service
+            android:name=".OpenCellular"
+            android:icon="@drawable/ic_action_cellular"
+            android:label="Open Connectivity Settings"
+            android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
+            <intent-filter>
+                <action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.support.wearable.complications.SUPPORTED_TYPES"
+                android:value="ICON" />
+        </service>
+
+        <service
+            android:name=".OpenMediaVolume"
+            android:icon="@drawable/ic_action_sound"
+            android:label="Open Media Volume"
             android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
             <intent-filter>
                 <action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" />
