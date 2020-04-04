@@ -6,12 +6,12 @@ android {
         applicationId "com.krisdb.wearquicksettings2"
         minSdkVersion 24
         targetSdkVersion 28
-        versionCode 6
-        versionName "1.03"
+        versionCode 7
+        versionName "1.04"
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -19,12 +19,12 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.google.android.support:wearable:2.4.0'
+    implementation 'com.google.android.support:wearable:2.5.0'
     implementation 'com.google.android.gms:play-services-wearable:17.0.0'
     implementation 'androidx.wear:wear:1.0.0'
     implementation 'androidx.percentlayout:percentlayout:1.0.0'
-    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
 
 
-    compileOnly 'com.google.android.wearable:wearable:2.4.0'
+    compileOnly 'com.google.android.wearable:wearable:2.5.0'
 }

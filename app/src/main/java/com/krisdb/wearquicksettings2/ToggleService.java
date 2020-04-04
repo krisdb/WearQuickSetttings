@@ -5,6 +5,7 @@ import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -32,12 +33,21 @@ public class ToggleService extends IntentService {
                 muteVolume();
             else if (toggle.equals("mediavolme"))
                 openMediaVolume();
+            else if (toggle.equals("wifi"))
+                toggleWifi();
         }
         return START_STICKY;
     }
 
+    private void toggleWifi()
+    {
+        final WifiManager wifiManager = (WifiManager)getSystemService(Context.WIFI_SERVICE);
+        Toast.makeText(this, wifiManager.isWifiEnabled() ? "Wi-Fi disabled" : "Wi-Fi enabled", Toast.LENGTH_SHORT).show();
+        wifiManager.setWifiEnabled(wifiManager.isWifiEnabled() ? false : true);
+    }
+
     private void muteVolume() {
-        AudioManager amanager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        final AudioManager amanager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
         if (amanager != null) {
             amanager.adjustStreamVolume(AudioManager.STREAM_NOTIFICATION, AudioManager.ADJUST_MUTE, 0);
@@ -51,7 +61,7 @@ public class ToggleService extends IntentService {
     }
 
     private void openMediaVolume() {
-        AudioManager amanager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        final AudioManager amanager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
         if (amanager != null)
             amanager.adjustVolume(AudioManager.ADJUST_RAISE, AudioManager.FLAG_SHOW_UI);
@@ -59,7 +69,7 @@ public class ToggleService extends IntentService {
 
     private void toggleBluetooth()
     {
-        BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
+        final BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
 
         if (adapter == null)
             Toast.makeText(this, "No Bluetooth adapter found", Toast.LENGTH_SHORT).show();

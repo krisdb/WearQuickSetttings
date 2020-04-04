@@ -90,6 +90,23 @@
                 android:name="android.support.wearable.complications.SUPPORTED_TYPES"
                 android:value="ICON" />
         </service>
+
+        <!--
+        <service
+            android:name=".ToggleWifi"
+            android:icon="@drawable/ic_action_toggle_wifi"
+            android:label="Toggle Wi-Fi"
+            android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
+            <intent-filter>
+                <action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.support.wearable.complications.SUPPORTED_TYPES"
+                android:value="ICON" />
+        </service>
+        -->
+
         <service
             android:name=".ToggleVolume"
             android:icon="@drawable/ic_action_mute"

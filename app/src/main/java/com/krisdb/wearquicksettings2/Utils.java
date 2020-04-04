@@ -11,6 +11,7 @@ public class Utils {
     {
         return  new ComplicationData.Builder(ComplicationData.TYPE_ICON)
                 .setIcon(Icon.createWithResource(ctx, resId))
+                .setBurnInProtectionIcon(Icon.createWithResource(ctx, R.drawable.ic_burnin))
                 .setTapAction(intent)
                 .build();
     }
