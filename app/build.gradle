@@ -6,8 +6,8 @@ android {
         applicationId "com.krisdb.wearquicksettings2"
         minSdkVersion 24
         targetSdkVersion 28
-        versionCode 7
-        versionName "1.04"
+        versionCode 8
+        versionName "1.05"
     }
     buildTypes {
         release {
@@ -24,7 +24,5 @@ dependencies {
     implementation 'androidx.wear:wear:1.0.0'
     implementation 'androidx.percentlayout:percentlayout:1.0.0'
     implementation 'androidx.appcompat:appcompat:1.1.0'
-
-
     compileOnly 'com.google.android.wearable:wearable:2.5.0'
 }
