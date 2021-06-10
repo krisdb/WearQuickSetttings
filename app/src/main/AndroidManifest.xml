@@ -14,7 +14,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@android:style/Theme.DeviceDefault">
+        android:theme="@style/Main">
         <uses-library
             android:name="com.google.android.wearable"
             android:required="true" />
@@ -91,22 +91,6 @@
                 android:value="ICON" />
         </service>
 
-        <!--
-        <service
-            android:name=".ToggleWifi"
-            android:icon="@drawable/ic_action_toggle_wifi"
-            android:label="Toggle Wi-Fi"
-            android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
-            <intent-filter>
-                <action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.support.wearable.complications.SUPPORTED_TYPES"
-                android:value="ICON" />
-        </service>
-        -->
-
         <service
             android:name=".ToggleVolume"
             android:icon="@drawable/ic_action_mute"
@@ -164,9 +148,9 @@
         </service>
 
         <service
-            android:name=".OpenCellular"
-            android:icon="@drawable/ic_action_cellular"
-            android:label="Open Connectivity Settings"
+            android:name=".OpenBatterySaver"
+            android:icon="@drawable/ic_action_battery_saver"
+            android:label="Open Battery Saver Settings"
             android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
             <intent-filter>
                 <action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" />
@@ -177,21 +161,6 @@
                 android:value="ICON" />
         </service>
 
-        <service
-            android:name=".OpenMediaVolume"
-            android:icon="@drawable/ic_action_sound"
-            android:label="Open Media Volume"
-            android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
-            <intent-filter>
-                <action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.support.wearable.complications.SUPPORTED_TYPES"
-                android:value="ICON" />
-        </service>
-
-        <service android:enabled="true" android:name=".ToggleService" />
     </application>
 
 </manifest>
