@@ -7,6 +7,8 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 
     <application
@@ -24,6 +26,7 @@
             android:value="true" />
 
         <activity
+            android:exported="true"
             android:name=".MainActivity"
             android:label="@string/app_name">
             <intent-filter>
@@ -35,6 +38,7 @@
 
 
         <service
+            android:exported="true"
             android:name=".OpenSound"
             android:icon="@drawable/ic_action_sound"
             android:label="Open Sound Settings"
@@ -50,6 +54,7 @@
 
 
         <service
+            android:exported="true"
             android:name=".OpenApps"
             android:icon="@drawable/ic_action_apps"
             android:label="Apps"
@@ -64,6 +69,7 @@
         </service>
 
         <service
+            android:exported="true"
             android:name=".OpenBluetooth"
             android:icon="@drawable/ic_action_bluetooth"
             android:label="Bluetooth Settings"
@@ -78,6 +84,7 @@
         </service>
 
         <service
+            android:exported="true"
             android:name=".OpenDisplay"
             android:icon="@drawable/ic_action_display"
             android:label="Display Settings"
@@ -92,6 +99,7 @@
         </service>
 
         <service
+            android:exported="true"
             android:name=".ToggleVolume"
             android:icon="@drawable/ic_action_mute"
             android:label="Mute Volume"
@@ -106,6 +114,7 @@
         </service>
 
         <service
+            android:exported="true"
             android:name=".OpenWifi"
             android:icon="@drawable/ic_action_wifi"
             android:label="Open Wifi Settings"
@@ -120,6 +129,7 @@
         </service>
 
         <service
+            android:exported="true"
             android:name=".ToggleBluetooth"
             android:icon="@drawable/ic_action_bluetooth"
             android:label="Toggle Bluetooth"
@@ -134,6 +144,7 @@
         </service>
 
         <service
+            android:exported="true"
             android:name=".OpenCellular"
             android:icon="@drawable/ic_action_cellular"
             android:label="Open Connectivity Settings"
@@ -148,6 +159,7 @@
         </service>
 
         <service
+            android:exported="true"
             android:name=".OpenBatterySaver"
             android:icon="@drawable/ic_action_battery_saver"
             android:label="Open Battery Saver Settings"

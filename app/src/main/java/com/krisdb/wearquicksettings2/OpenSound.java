@@ -22,7 +22,7 @@ public class OpenSound extends ComplicationProviderService {
         if (dataType == ComplicationData.TYPE_ICON)
             complicationData = Utils.setData(
                     this,
-                    PendingIntent.getActivity(this, 0, new Intent(Settings.ACTION_SOUND_SETTINGS), 0),
+                    PendingIntent.getActivity(this, 0, new Intent(Settings.ACTION_SOUND_SETTINGS), PendingIntent.FLAG_IMMUTABLE),
                     R.drawable.ic_action_sound
             );
 

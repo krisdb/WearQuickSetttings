@@ -21,7 +21,7 @@ public class ToggleBluetooth extends ComplicationProviderService {
         if (dataType == ComplicationData.TYPE_ICON)
             complicationData = Utils.setData(
                     this,
-                    PendingIntent.getService(this, 0, toggle, PendingIntent.FLAG_UPDATE_CURRENT),
+                    PendingIntent.getService(this, 0, toggle, PendingIntent.FLAG_IMMUTABLE),
                     R.drawable.ic_action_bluetooth
             );
 
