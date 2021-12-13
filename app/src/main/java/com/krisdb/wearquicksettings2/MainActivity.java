@@ -1,6 +1,5 @@
 package com.krisdb.wearquicksettings2;
 
-import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
@@ -8,6 +7,7 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
 import android.widget.Toast;
+import android.bluetooth.BluetoothAdapter;
 
 import androidx.fragment.app.FragmentActivity;
 

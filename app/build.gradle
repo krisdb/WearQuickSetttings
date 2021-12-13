@@ -6,14 +6,19 @@ android {
         applicationId "com.krisdb.wearquicksettings2"
         minSdkVersion 26
         targetSdkVersion 31
-        versionCode 11
+        versionCode 12
         versionName "1.08"
     }
     buildTypes {
         release {
             minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
