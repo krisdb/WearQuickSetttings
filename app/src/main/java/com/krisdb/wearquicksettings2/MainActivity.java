@@ -1,14 +1,20 @@
 package com.krisdb.wearquicksettings2;
 
+import android.Manifest;
+import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.media.AudioManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
 import android.widget.Toast;
-import android.bluetooth.BluetoothAdapter;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
 public class MainActivity extends FragmentActivity {
@@ -18,7 +24,14 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED)
+            requestPermissionLauncher.launch(Manifest.permission.BLUETOOTH_CONNECT);
     }
+
+    private final ActivityResultLauncher<String> requestPermissionLauncher = registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
+
+    });
 
     public void onClickOpenApps(View v) {
         startActivity(new Intent(Settings.ACTION_APPLICATION_SETTINGS));
@@ -53,13 +66,10 @@ public class MainActivity extends FragmentActivity {
 
         if (adapter == null)
             Toast.makeText(this, "No Bluetooth adapter found", Toast.LENGTH_SHORT).show();
-        else if (adapter.isEnabled())
-        {
+        else if (adapter.isEnabled()) {
             adapter.disable();
             Toast.makeText(this, "Bluetooth off", Toast.LENGTH_SHORT).show();
-        }
-        else
-        {
+        } else {
             adapter.enable();
             Toast.makeText(this, "Bluetooth on", Toast.LENGTH_SHORT).show();
         }
