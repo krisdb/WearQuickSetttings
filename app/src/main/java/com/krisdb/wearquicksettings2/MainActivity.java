@@ -2,6 +2,7 @@ package com.krisdb.wearquicksettings2;
 
 import android.Manifest;
 import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -62,16 +63,20 @@ public class MainActivity extends FragmentActivity {
     }
 
     public void onClickOnToggleBluetooth(View v) {
-        final BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
 
-        if (adapter == null)
-            Toast.makeText(this, "No Bluetooth adapter found", Toast.LENGTH_SHORT).show();
-        else if (adapter.isEnabled()) {
-            adapter.disable();
-            Toast.makeText(this, "Bluetooth off", Toast.LENGTH_SHORT).show();
-        } else {
-            adapter.enable();
-            Toast.makeText(this, "Bluetooth on", Toast.LENGTH_SHORT).show();
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S || ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) == PackageManager.PERMISSION_GRANTED) {
+
+            final BluetoothAdapter adapter = ((BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE)).getAdapter();
+
+            if (adapter == null)
+                Toast.makeText(this, "No Bluetooth adapter found", Toast.LENGTH_SHORT).show();
+            else if (adapter.isEnabled()) {
+                adapter.disable();
+                Toast.makeText(this, "Bluetooth off", Toast.LENGTH_SHORT).show();
+            } else {
+                adapter.enable();
+                Toast.makeText(this, "Bluetooth on", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
